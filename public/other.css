@@ -1,0 +1,57 @@
+body {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(209, 213, 255),
+    rgb(201, 214, 255),
+    rgb(193, 216, 255),
+    rgb(185, 217, 255),
+    rgb(177, 218, 255),
+    rgb(169, 220, 255),
+    rgb(162, 221, 255),
+    rgb(154, 223, 255),
+    rgb(146, 224, 255),
+    rgb(138, 225, 255),
+    rgb(130, 227, 255),
+    rgb(122, 228, 255)
+  );
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 1s;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter-to,
+.v-leave-from {
+  opacity: 1;
+}
+h1 {
+  position: relative;
+  font-family: Lato, sans-serif;
+  font-size: 6vw;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+h1 .hi {
+  display: inline-block;
+}
+
+h1 .text {
+  font-family: "Source Code Pro", sans-serif;
+  font-weight: normal;
+  padding-left: 1.2vw;
+}
+
+h1 .box {
+  position: absolute;
+  bottom: 0;
+  display: inline-block;
+  height: 1vw;
+  z-index: -1;
+}
