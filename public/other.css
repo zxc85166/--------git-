@@ -1,19 +1,5 @@
 body {
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(209, 213, 255),
-    rgb(201, 214, 255),
-    rgb(193, 216, 255),
-    rgb(185, 217, 255),
-    rgb(177, 218, 255),
-    rgb(169, 220, 255),
-    rgb(162, 221, 255),
-    rgb(154, 223, 255),
-    rgb(146, 224, 255),
-    rgb(138, 225, 255),
-    rgb(130, 227, 255),
-    rgb(122, 228, 255)
-  );
+  background-color: #7be5fe;
 }
 
 .v-enter-active,
