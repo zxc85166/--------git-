@@ -186,7 +186,6 @@ const app = Vue.createApp({
           this.totalAnswer = this.type[9]; // "皮膚、外傷科",
           this.idx += 7;
           break;
-
         default:
           this.idx++;
       }
@@ -202,20 +201,24 @@ const app = Vue.createApp({
       this.correctAnswers = 0;
       this.wrongAnswers = 0;
       this.totalAnswer = "";
+      this.ranhosMethod();
+    },
+    ranhosMethod() {
+      const hospital = [
+        "高雄醫學大學附設中和紀念醫院",
+        "國軍高雄總醫院",
+        "榮民總醫院",
+        "民生醫院",
+        "大同醫院",
+        "阮綜合醫院",
+        "長庚紀念醫院",
+      ];
+      this.randomHos = hospital[Math.round(Math.random() * 6)];
+      console.log(this.randomHos);
     },
   },
   mounted() {
-    const hospital = [
-      "高雄醫學大學附設中和紀念醫院",
-      "國軍高雄總醫院",
-      "榮民總醫院",
-      "民生醫院",
-      "大同醫院",
-      "阮綜合醫院",
-      "長庚紀念醫院",
-    ];
-    this.randomHos = hospital[Math.round(Math.random() * 6)];
-    console.log(this.randomHos);
+    this.ranhosMethod();
     const words = [
       "整形外科?",
       "胸腔食道外科?",
