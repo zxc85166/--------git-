@@ -14,7 +14,7 @@ const app = Vue.createApp({
         "皮膚、外傷科", //9
         "家庭醫學科", //10
         "身心", //11
-        "老人醫學科", //12
+        "老人醫學科、", //12
       ],
       nurseshow: true,
       nurse2show: true,
@@ -112,31 +112,22 @@ const app = Vue.createApp({
     },
     answered(e) {
       this.selectedAnswer = e.target.value;
-      // const trd = this.idx.toString() + this.selectedAnswer;
-      // switch (trd) {
-      //   case "3a":
-      //     this.totalAnswer = "胃腸內科";
-      //     break;
-      //   case "3b":
-      //     this.totalAnswer = "肝膽胰內科";
-      //     break;
-      //   case "3c":
-      //     this.totalAnswer = "一般及消化系外科";
-      //     break;
-      //   case "3d":
-      //     this.totalAnswer = "大腸直腸外科";
-      //     break;
-      //   default:
-      //     this.totalAnswer = "";
-      // }
+      const old = this.idx.toString() + this.selectedAnswer;
+      switch (old) {
+        case "0a":
+          this.totalAnswer = this.type[13]; // "老人醫學科",
+          break;
+        case "6a":
+          this.totalAnswer = this.totalAnswer + this.type[10]; // "家庭醫學科",
+          break;
+        case "6b":
+          this.totalAnswer = this.totalAnswer + this.type[11]; // "身心",
+          break;
+      }
     },
     nextQuestion() {
       const status = this.idx.toString() + this.selectedAnswer;
       switch (status) {
-        case "0a":
-          this.totalAnswer = this.type[13]; // "老人醫學科",
-          this.idx++;
-          break;
         case "0c":
           this.totalAnswer = "小兒科";
           this.idx += 7;
@@ -195,14 +186,7 @@ const app = Vue.createApp({
           this.totalAnswer = this.type[9]; // "皮膚、外傷科",
           this.idx += 7;
           break;
-        case "6a":
-          this.totalAnswer = this.type[11]; // "身心",
-          this.idx += 7;
-          break;
-        case "6b":
-          this.totalAnswer = this.type[10]; // "家庭醫學科",
-          this.idx += 7;
-          break;
+
         default:
           this.idx++;
       }
