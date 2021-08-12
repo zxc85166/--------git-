@@ -201,6 +201,7 @@ const app = Vue.createApp({
       this.selectedAnswer = "";
       this.correctAnswers = 0;
       this.wrongAnswers = 0;
+      this.totalAnswer = "";
     },
   },
   mounted() {
