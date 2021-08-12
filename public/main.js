@@ -214,7 +214,7 @@ const app = Vue.createApp({
         "長庚紀念醫院",
       ];
       this.randomHos = hospital[Math.round(Math.random() * 6)];
-      console.log(this.randomHos);
+      // console.log(this.randomHos);
     },
   },
   mounted() {

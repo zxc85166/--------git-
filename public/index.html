@@ -99,8 +99,10 @@
                               px-6
                               text-indigo-700 text-center text-xl
                               font-bold
+                              hover:bg-gray-100
+                              cursor-pointer
                             "
-                            :class="{'hover:bg-gray-100 cursor-pointer' : selectedAnswer == ''},{'bg-red-200' : selectedAnswer == index}"
+                            :class="{'bg-red-200' : selectedAnswer == index}"
                           >
                             <input
                               :id="index"
@@ -108,7 +110,6 @@
                               class="hidden"
                               :value="index"
                               v-on:change="answered($event)"
-                              :disabled="selectedAnswer != ''"
                             />
                             {{answer}}
                           </label>
