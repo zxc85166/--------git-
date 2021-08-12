@@ -123,6 +123,7 @@ const app = Vue.createApp({
         case "6b":
           this.totalAnswer = this.totalAnswer + this.type[11]; // "身心",
           break;
+        default:
       }
     },
     nextQuestion() {
