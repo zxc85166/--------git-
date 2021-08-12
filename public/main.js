@@ -125,6 +125,7 @@ const app = Vue.createApp({
           break;
         default:
       }
+      document.querySelectorAll("input").forEach((el) => (el.checked = false));
     },
     nextQuestion() {
       const status = this.idx.toString() + this.selectedAnswer;
@@ -191,7 +192,7 @@ const app = Vue.createApp({
           this.idx++;
       }
       this.selectedAnswer = "";
-      document.querySelectorAll("input").forEach((el) => (el.checked = false));
+      // document.querySelectorAll("input").forEach((el) => (el.checked = false));
     },
     showResults() {
       this.idx++;
