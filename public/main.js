@@ -115,7 +115,7 @@ const app = Vue.createApp({
       const old = this.idx.toString() + this.selectedAnswer;
       switch (old) {
         case "0a":
-          this.totalAnswer = this.type[13]; // "老人醫學科",
+          this.totalAnswer = this.type[12]; // "老人醫學科",
           break;
         case "6a":
           this.totalAnswer = this.totalAnswer + this.type[10]; // "家庭醫學科",
