@@ -1,6 +1,21 @@
 const app = Vue.createApp({
   data() {
     return {
+      type: [
+        "牙科", //0
+        "眼科", //1
+        "耳鼻喉科", //2
+        "胸腔科", //3
+        "一般消化科", //4
+        "泌尿科", //5
+        "泌尿、婦產科", //6
+        "心臟外科、心臟內科", //7
+        "骨科", //8
+        "皮膚、外傷科", //9
+        "家庭醫學科", //10
+        "身心", //11
+        "老人醫學科", //12
+      ],
       nurseshow: true,
       nurse2show: true,
       h1isShow: true,
@@ -9,45 +24,81 @@ const app = Vue.createApp({
       totalAnswer: "",
       selectedAnswer: "",
       randomHos: "",
-      count: 4,
+      count: 7,
       questions: [
         {
           srcimg:
             "https://images.pexels.com/photos/112787/pexels-photo-112787.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-          question: "是否已滿18歲?",
-          answers: { a: "是", b: "否" },
-          // correctAnswer: "b",
+          question: "請問您的年齡位於下列哪一段區域?",
+          answers: { a: "65歲以上", b: "18~64歲", c: "18以下" },
+          // 順序: "0",
         },
         {
           srcimg:
             "https://images.pexels.com/photos/7298867/pexels-photo-7298867.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
           question: "哪個部位不舒服?",
           answers: {
-            a: "頭",
-            b: "胸",
-            c: "腹",
-            d: "四肢",
+            a: "頭頸",
+            b: "胸腹",
+            c: "生殖",
+            d: "心臟",
+            e: "四肢",
+            f: "其他",
           },
+          // 順序: "1",
         },
         {
           srcimg:
             "https://images.pexels.com/photos/1576193/pexels-photo-1576193.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
           question: "接近哪個部位呢?",
           answers: {
-            a: "臉",
-            b: "喉",
+            a: "口腔",
+            b: "眼",
+            c: "耳",
+            d: "鼻",
+            e: "喉",
           },
+          // 順序: "2",
         },
         {
           srcimg:
             "https://images.pexels.com/photos/5938368/pexels-photo-5938368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-          question: "疼痛四象限?",
+          question: "請選擇感到不適的部位",
           answers: {
-            a: "肚子右上部位",
-            b: "肚子左上部位",
-            c: "肚子右下部位",
-            d: "肚子左下部位",
+            a: "呼吸道不適",
+            b: "消化道不適",
           },
+          // 順序: "3",
+        },
+        {
+          srcimg:
+            "https://images.pexels.com/photos/5938368/pexels-photo-5938368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          question: "請問您的性別?",
+          answers: {
+            a: "男性",
+            b: "女性",
+          },
+          // 順序: "4",
+        },
+        {
+          srcimg:
+            "https://images.pexels.com/photos/5938368/pexels-photo-5938368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          question: "是否傷及骨頭?",
+          answers: {
+            a: "是",
+            b: "否",
+          },
+          // 順序: "5",
+        },
+        {
+          srcimg:
+            "https://images.pexels.com/photos/5938368/pexels-photo-5938368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          question: "請選擇感到不適的部位",
+          answers: {
+            a: "發燒感冒、其實我不是很清楚欸",
+            b: "心情鬱悶",
+          },
+          // 順序: "6",
         },
       ],
     };
@@ -61,49 +112,96 @@ const app = Vue.createApp({
     },
     answered(e) {
       this.selectedAnswer = e.target.value;
-      const trd = this.idx.toString() + this.selectedAnswer;
-      switch (trd) {
-        case "3a":
-          this.totalAnswer = "胃腸內科";
-          break;
-        case "3b":
-          this.totalAnswer = "肝膽胰內科";
-          break;
-        case "3c":
-          this.totalAnswer = "一般及消化系外科";
-          break;
-        case "3d":
-          this.totalAnswer = "大腸直腸外科";
-          break;
-        default:
-          this.totalAnswer = "";
-      }
+      // const trd = this.idx.toString() + this.selectedAnswer;
+      // switch (trd) {
+      //   case "3a":
+      //     this.totalAnswer = "胃腸內科";
+      //     break;
+      //   case "3b":
+      //     this.totalAnswer = "肝膽胰內科";
+      //     break;
+      //   case "3c":
+      //     this.totalAnswer = "一般及消化系外科";
+      //     break;
+      //   case "3d":
+      //     this.totalAnswer = "大腸直腸外科";
+      //     break;
+      //   default:
+      //     this.totalAnswer = "";
+      // }
     },
     nextQuestion() {
       const status = this.idx.toString() + this.selectedAnswer;
       switch (status) {
-        case "0b":
-          this.totalAnswer = "小兒科、兒童眼科";
-          this.idx += 4;
+        case "0a":
+          this.totalAnswer = this.type[13]; // "老人醫學科",
+          this.idx++;
+          break;
+        case "0c":
+          this.totalAnswer = "小兒科";
+          this.idx += 7;
           break;
         case "1b":
-          this.totalAnswer = "一般醫學外科、外傷及重症外科";
-          this.idx += 3;
-          break;
-        case "1c":
           this.idx += 2;
           break;
-        case "1d":
-          this.totalAnswer = "整形外科、外傷及重症外科";
+        case "1c":
           this.idx += 3;
+          break;
+        case "1d":
+          this.totalAnswer = this.type[7]; //"心臟外科、心臟內科",
+          this.idx += 7;
+          break;
+        case "1e":
+          this.idx += 4;
+          break;
+        case "1f":
+          this.idx += 5;
           break;
         case "2a":
-          this.totalAnswer = "整形外科";
-          this.idx += 3;
+          this.totalAnswer = this.type[0]; // "牙科",
+          this.idx += 7;
           break;
         case "2b":
-          this.totalAnswer = "胸腔食道外科";
-          this.idx += 3;
+          this.totalAnswer = this.type[1]; // "眼科",
+          this.idx += 7;
+          break;
+        case "2c":
+        case "2d":
+        case "2e":
+          this.totalAnswer = this.type[2]; // "耳鼻喉科",
+          this.idx += 7;
+          break;
+        case "3a":
+          this.totalAnswer = this.type[3]; // "胸腔科",
+          this.idx += 7;
+          break;
+        case "3b":
+          this.totalAnswer = this.type[4]; // "一般消化科",
+          this.idx += 7;
+          break;
+        case "4a":
+          this.totalAnswer = this.type[5]; // "泌尿科",
+          this.idx += 7;
+          break;
+        case "4b":
+          this.totalAnswer = this.type[6]; // "泌尿、婦產科",
+          this.idx += 7;
+          break;
+        case "5a":
+          this.totalAnswer = this.type[8]; // "骨科",
+          this.idx += 7;
+          break;
+        case "5b":
+          this.totalAnswer = this.type[9]; // "皮膚、外傷科",
+          this.idx += 7;
+          break;
+        case "6a":
+          this.totalAnswer = this.type[11]; // "身心",
+          this.idx += 7;
+          break;
+        case "6b":
+          this.totalAnswer = this.type[10]; // "家庭醫學科",
+          this.idx += 7;
           break;
         default:
           this.idx++;
