@@ -13,7 +13,7 @@ const app = Vue.createApp({
         "骨科", //8
         "皮膚、外傷科", //9
         "家庭醫學科", //10
-        "身心", //11
+        "身心科", //11
         "老人醫學科、", //12
       ],
       nurseshow: true,
@@ -30,7 +30,7 @@ const app = Vue.createApp({
           srcimg:
             "https://images.pexels.com/photos/112787/pexels-photo-112787.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
           question: "請問您的年齡位於下列哪一段區域?",
-          answers: { a: "65歲以上", b: "18~64歲", c: "18以下" },
+          answers: { a: "65歲以上", b: "18~64歲", c: "18歲以下" },
           // 順序: "0",
         },
         {
@@ -82,7 +82,7 @@ const app = Vue.createApp({
         },
         {
           srcimg:
-            "https://images.pexels.com/photos/5938368/pexels-photo-5938368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "https://images.pexels.com/photos/7723388/pexels-photo-7723388.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
           question: "是否傷及骨頭?",
           answers: {
             a: "是",
@@ -92,7 +92,7 @@ const app = Vue.createApp({
         },
         {
           srcimg:
-            "https://images.pexels.com/photos/5938368/pexels-photo-5938368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "https://images.pexels.com/photos/6135040/pexels-photo-6135040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           question: "請選擇感到不適的部位",
           answers: {
             a: "發燒感冒、其實我不是很清楚欸",
