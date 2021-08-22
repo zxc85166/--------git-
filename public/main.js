@@ -15,6 +15,9 @@ const app = Vue.createApp({
         "家庭醫學科", //10
         "身心科", //11
         "老人醫學科、", //12
+        "胃腸內科", //13
+        "肝膽胰內科", //14
+        "大腸直腸外科", //15
       ],
       nurseshow: true,
       nurse2show: true,
@@ -23,8 +26,38 @@ const app = Vue.createApp({
       idx: 0,
       totalAnswer: "",
       selectedAnswer: "",
-      randomHos: "",
-      count: 7,
+      randomHosCount: "",
+      randomHos: [
+        {
+          name: "高雄醫學大學附設中和紀念醫院",
+          URL: "https://www.kmuh.org.tw/KMUHInterWeb/InterWeb/InnerPage/1001124050",
+        },
+        {
+          name: "國軍高雄總醫院",
+          URL: "https://reg.802.mnd.gov.tw/",
+        },
+        {
+          name: "榮民總醫院",
+          URL: "https://webreg.vghks.gov.tw/wps/portal/web/announce/!ut/p/b1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOKdfYMC_L3dDQ3cXR3NDDz9PAPMHS38DUxcTPS99KPSc_KTgErD9aPwKvYxhyowwAEcDfT9PPJzU_ULsoODLBwVFQHydxO9/dl4/d5/L2dBISEvZ0FBIS9nQSEh/",
+        },
+        {
+          name: "民生醫院",
+          URL: "https://www.kmsh.gov.tw/trenew/",
+        },
+        {
+          name: "大同醫院",
+          URL: "https://www.kmtth.org.tw/Web/KMTTHInterWeb/InterWeb/InnerPage/2020010690",
+        },
+        {
+          name: "阮綜合醫院",
+          URL: "https://register.yuanhosp.com.tw/register3/",
+        },
+        {
+          name: "長庚紀念醫院",
+          URL: "https://register.cgmh.org.tw/Register/8",
+        },
+      ],
+      count: 8,
       questions: [
         {
           srcimg:
@@ -100,6 +133,18 @@ const app = Vue.createApp({
           },
           // 順序: "6",
         },
+        {
+          srcimg:
+            "https://images.pexels.com/photos/6135040/pexels-photo-6135040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+          question: "請選擇腹部感到不適的部位 - 疼痛四象限",
+          answers: {
+            a: "肚子右上部位",
+            b: "肚子左上部位",
+            c: "肚子右下部位",
+            d: "肚子左下部位",
+          },
+          // 順序: "7",
+        },
       ],
     };
   },
@@ -117,12 +162,19 @@ const app = Vue.createApp({
         case "0a":
           this.totalAnswer = this.type[12]; // "老人醫學科",
           break;
-        case "6a":
-          this.totalAnswer = this.totalAnswer + this.type[10]; // "家庭醫學科",
+        case "7a":
+          this.totalAnswer = this.type[13]; // "胃腸內科",
           break;
-        case "6b":
-          this.totalAnswer = this.totalAnswer + this.type[11]; // "身心",
+        case "7b":
+          this.totalAnswer = this.type[14]; // "肝膽胰內科",
           break;
+        case "7c":
+          this.totalAnswer = this.type[4]; // "一般消化科",
+          break;
+        case "7d":
+          this.totalAnswer = this.type[15]; // "大腸直腸外科",
+          break;
+
         default:
       }
       document.querySelectorAll("input").forEach((el) => (el.checked = false));
@@ -169,8 +221,7 @@ const app = Vue.createApp({
           this.idx += 7;
           break;
         case "3b":
-          this.totalAnswer = this.type[4]; // "一般消化科",
-          this.idx += 7;
+          this.idx += 4;
           break;
         case "4a":
           this.totalAnswer = this.type[5]; // "泌尿科",
@@ -186,6 +237,14 @@ const app = Vue.createApp({
           break;
         case "5b":
           this.totalAnswer = this.type[9]; // "皮膚、外傷科",
+          this.idx += 7;
+          break;
+        case "6a":
+          this.totalAnswer = this.totalAnswer + this.type[10]; // "家庭醫學科",
+          this.idx += 7;
+          break;
+        case "6b":
+          this.totalAnswer = this.totalAnswer + this.type[11]; // "身心",
           this.idx += 7;
           break;
         default:
@@ -206,17 +265,7 @@ const app = Vue.createApp({
       this.ranhosMethod();
     },
     ranhosMethod() {
-      const hospital = [
-        "高雄醫學大學附設中和紀念醫院",
-        "國軍高雄總醫院",
-        "榮民總醫院",
-        "民生醫院",
-        "大同醫院",
-        "阮綜合醫院",
-        "長庚紀念醫院",
-      ];
-      this.randomHos = hospital[Math.round(Math.random() * 6)];
-      // console.log(this.randomHos);
+      this.randomHosCount = Math.round(Math.random() * 6);
     },
   },
   mounted() {

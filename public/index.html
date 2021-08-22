@@ -176,10 +176,14 @@
                             </div>
                             <div>
                               <p>
-                                <span class="text-indigo-700">建議醫院:</span
+                                <span class="text-indigo-700"
+                                  >建議醫院:(點擊文字前往掛號)</span
                                 ><br />
-                                <span class="text-2xl text-red-700 font-bold"
-                                  >{{randomHos}}</span
+                                <a
+                                  :href="randomHos[randomHosCount]['URL']"
+                                  target="_blank"
+                                  class="text-2xl text-red-700 font-bold"
+                                  >{{randomHos[randomHosCount]['name']}}</a
                                 >
                               </p>
                             </div>
