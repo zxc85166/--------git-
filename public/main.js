@@ -184,7 +184,7 @@ const app = Vue.createApp({
       switch (status) {
         case "0c":
           this.totalAnswer = "小兒科";
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "1b":
           this.idx += 2;
@@ -194,7 +194,7 @@ const app = Vue.createApp({
           break;
         case "1d":
           this.totalAnswer = this.type[7]; //"心臟外科、心臟內科",
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "1e":
           this.idx += 4;
@@ -204,48 +204,48 @@ const app = Vue.createApp({
           break;
         case "2a":
           this.totalAnswer = this.type[0]; // "牙科",
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "2b":
           this.totalAnswer = this.type[1]; // "眼科",
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "2c":
         case "2d":
         case "2e":
           this.totalAnswer = this.type[2]; // "耳鼻喉科",
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "3a":
           this.totalAnswer = this.type[3]; // "胸腔科",
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "3b":
           this.idx += 4;
           break;
         case "4a":
           this.totalAnswer = this.type[5]; // "泌尿科",
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "4b":
           this.totalAnswer = this.type[6]; // "泌尿、婦產科",
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "5a":
           this.totalAnswer = this.type[8]; // "骨科",
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "5b":
           this.totalAnswer = this.type[9]; // "皮膚、外傷科",
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "6a":
           this.totalAnswer = this.totalAnswer + this.type[10]; // "家庭醫學科",
-          this.idx += 7;
+          this.idx += 8;
           break;
         case "6b":
           this.totalAnswer = this.totalAnswer + this.type[11]; // "身心",
-          this.idx += 7;
+          this.idx += 8;
           break;
         default:
           this.idx++;
